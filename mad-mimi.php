@@ -144,7 +144,7 @@ class KWSMadMimi {
                 <div style="clear:both;"></div>
             </div>
         </div>
-            <? } // End if error
+            <?php } // End if error
             } elseif(isset($_REQUEST['hidemessage'])) {
                 update_option('hide_madmimi_message', true);
             }
@@ -507,4 +507,3 @@ function madmimi_get_user_lists($force_reset = false) {
     }
     return false;
 }
-
