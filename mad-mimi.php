@@ -468,15 +468,13 @@ class KWSMadMimi {
 
 }
 
-
 add_action('plugins_loaded', 'madmimi_initialize', 1);
 
 function madmimi_initialize() {
     new KWSMadMimi();
 
-    $plugin_dir = basename(dirname(__FILE__)).'languages';
+    $plugin_dir = basename(dirname(__FILE__)).'/languages/';
     load_plugin_textdomain( 'mad-mimi', 'wp-content/plugins/' . $plugin_dir, $plugin_dir );
-
 }
 
 function madmimi_get_user_lists($force_reset = false) {
