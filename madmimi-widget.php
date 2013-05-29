@@ -148,7 +148,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					$out .=	"		<label for='signup_country{$this->number}'>Country</label><br /><input id='signup_country{$this->number}' name='signup[country]' type='text' value='$value' /><br />";
 				}
 				$value = isset($_POST['signup']['email']) ? esc_attr($_POST['signup']['email']) : '';
-				$out .=	"		<label for='signup_email{$this->number}'>". __('Receba as notícias da IASD semanalmente no seu e-mail:<span class="required" title="This field is required">*</span>.', 'mad-mimi') ."</label><br /><input id='signup_email{$this->number}' name='signup[email]' type='text' value='$value' /><br />";
+				$out .=	"		<label for='signup_email{$this->number}'>". __('Receba as notícias da Igreja Adventista do Sétimo Dia semanalmente no seu e-mail:', 'mad-mimi') ."</label><br /><input id='signup_email{$this->number}' name='signup[email]' type='text' value='$value' /><br />";
 
 				$out .=	"		<input name='commit' class='button btn btn-primary' type='submit' value='$submittext' />";
 				if(!empty($successredirect)) {
