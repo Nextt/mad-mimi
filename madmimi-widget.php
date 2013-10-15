@@ -79,10 +79,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			 * Begin HTML output of widget
 			 */
 			$out .= (isset($before)) ? $before : '';
+
 			if(isset($title) && !empty($title) && strtolower($title) != "false" && $title != "0") {
-				$out .= '<h2 class="mad_mimi_title">';
+				$out .= (isset($before_title, $after_title)) ? $before_title : '<h2 class="mad_mimi_title">';
 				$out .= (isset($title)) ? $title : '';
-				$out .= '</h2>';
+				$out .= (isset($after_title, $before_title)) ? $after_title : '</h2>';
 			}
 			$out .= isset($widget_description) ? apply_filters('madmimi_form_description', apply_filters('madmimi_form_description_'.$this->number, html_entity_decode ($widget_description))) : '';
 
@@ -148,7 +149,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					$out .=	"		<label for='signup_country{$this->number}'>Country</label><br /><input id='signup_country{$this->number}' name='signup[country]' type='text' value='$value' /><br />";
 				}
 				$value = isset($_POST['signup']['email']) ? esc_attr($_POST['signup']['email']) : '';
-				$out .=	"		<input id='signup_email{$this->number}' name='signup[email]' type='text' value='$value' /><input name='commit' class='button btn btn-primary' type='submit' value='$submittext' />";
+				$out .=	"		<label for='signup_email{$this->number}'>Email<span class='required' title='This field is required'>*</span></label><br /><input id='signup_email{$this->number}' name='signup[email]' type='text' value='$value' /><br />";
+
+				$out .=	"		<input name='commit' class='button' type='submit' value='$submittext' />";
 				if(!empty($successredirect)) {
 					$successredirect = urlencode($successredirect);
 					$out .= "<input type='hidden' name='signup[redirect]' value='$successredirect' />";
